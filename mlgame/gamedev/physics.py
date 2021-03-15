@@ -163,6 +163,7 @@ def bounce_off_ip(bounce_obj_rect: Rect, bounce_obj_speed,
     if rect_diff_bT_hB < 0 and rect_diff_bB_hT < 0:
         surface_diff_y = rect_diff_bT_hB
         extract_pos_y = hit_obj_rect.bottom
+
     ## The bouncing object is at the top
     elif rect_diff_bT_hB > 0 and rect_diff_bB_hT > 0:
         surface_diff_y = rect_diff_bB_hT
