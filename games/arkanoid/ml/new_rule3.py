@@ -38,13 +38,22 @@ class MLPlay:
             print("ball direction", self.ball_move)
             self.location = list(scene_info["ball"])
             self.move = self.ball_move
-            self.consider_bricks = scene_info["bricks"]
+            self.consider_bricks = scene_info["bricks"] + scene_info["hard_bricks"]
             self.consider_bricks_hard = scene_info["hard_bricks"]
+            self.end = False
+            count = 0
 
+            if self.end == True:
+                return "NONE"
             print("The all bound in this cycle:")
             # caculate the ball location when ball pass  y = 400
             while (self.location[1] < 400):
                 # check which brick will be hit by ball
+                if count > 30:
+                    self.end = True
+                    break
+                
+                count += 1
                 hit_brick = self.check_hit_brick()
                 print("check brick")
                 if len(hit_brick) != 0:
